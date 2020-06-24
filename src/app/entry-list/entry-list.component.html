@@ -1,6 +1,6 @@
 <div *ngFor="let entry of entries">
   <h2> {{entry.name}} </h2>
-  <textarea ng-model="entry"[placeholder]="entry.description"></textarea> 
+  <textarea [placeholder]="entry.description"></textarea> 
   <br>
-  <button (click)="save()"> Save </button>
+  <button (click)="save(entry.name)"> Save </button>
 </div>

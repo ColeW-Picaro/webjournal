@@ -15,8 +15,8 @@ export class EntryListComponent implements OnInit {
   ngOnInit() {
   }
 
-  save() {
-
+  save(entryName, entryText) {
+    window.alert(entryName + " " + entryText);
   }
 
 }
