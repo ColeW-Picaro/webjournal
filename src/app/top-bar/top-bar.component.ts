@@ -1,3 +1,4 @@
+import { AppComponent } from './../app.component';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+  public title;
+
+  constructor(public app: AppComponent) { 
+    this.title = app.title;
+  
+  }
 
   ngOnInit() {
   }

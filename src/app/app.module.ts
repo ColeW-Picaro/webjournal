@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { EntryListComponent } from './entry-list/entry-list.component';
+import { InputComponent } from './input.component';
 
 @NgModule({
   imports: [
@@ -18,15 +19,10 @@ import { EntryListComponent } from './entry-list/entry-list.component';
   declarations: [
     AppComponent,
     TopBarComponent,
-    EntryListComponent
+    EntryListComponent,
+    InputComponent
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+  providers: [AppComponent]
 })
 export class AppModule { }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

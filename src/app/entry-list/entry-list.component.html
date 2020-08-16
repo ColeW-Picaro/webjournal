@@ -1,6 +1,4 @@
-<div *ngFor="let entry of entries">
-  <h2> {{entry.name}} </h2>
-  <textarea [placeholder]="entry.description"></textarea> 
-  <br>
-  <button (click)="save(entry.name)"> Save </button>
+<div *ngFor="let entry of entries.getEntries()">
+  <h2> {{ entry.name }} </h2>
+  <div><app-input></app-input></div>    
 </div>
