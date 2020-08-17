@@ -1,31 +1,41 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { EntriesService } from './entries.service';
+import { Component, Output, EventEmitter, Input, OnInit, Inject, Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-input',
   template: `
-    <textarea #box
-      (keyup.enter)="update(id, box.value)"
-      (blur)="update(id, box.value)">
+    <textarea [(ngModel)]="text"      
+      (keyup.enter)="update()"
+      (blur)="update()">
     </textarea>
     `
 })
-export class InputComponent {  
-  private value: string = '';
 
-  private entriesService: EntriesService;
-  
+export class InputComponent implements OnInit {
+  /*
+    text: the current text of the textarea
+    entry: the Entry this component updates
+    index: the Index of the array
+    updateEntry: Event for updating the entry
+  */
+  text: string; 
+  @Input() entry: any;
+  @Input() index: number;
+  @Output() updateEntry: EventEmitter<any> = new EventEmitter();  
 
-  constructor(entriesService: EntriesService) {
-    this.entriesService = entriesService;    
+  constructor() {    
   }
 
-  update(num: number, value: string) {     
-    this.value = value;
-    this.entriesService.changeEntry([num, this.value]);  
+  ngOnInit() {    
+    this.text = this.entry.text;
+  }
+
+  update() {
+    console.log(this.text);
+    this.entry.text = this.text;
+    this.updateEntry.emit({entry: this.text, index: this.index});
   }
 
   getValue () {
-    return this.value;
+    return this.entry.text;
   }  
 }

@@ -26,9 +26,7 @@ export class EntriesService {
 
   public entrySource = new Subject<[number, string]>();
 
-  entryChanged$ = this.entrySource.asObservable();  
-
-  public index = 0;
+  entryChanged$ = this.entrySource.asObservable();    
 
   constructor() {     
     this.entries = entries;
@@ -38,9 +36,6 @@ export class EntriesService {
     console.log(entry);
     this.entrySource.next(entry);    
   }
-
-  updateIndex() {
-    ++this.index;
-  }
+  
 
 }

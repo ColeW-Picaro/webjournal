@@ -1,7 +1,7 @@
 import { InputComponent } from './input.component';
-import { NgModule } from '@angular/core';
+import { NgModule, ɵNOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -10,7 +10,8 @@ import { JournalFormComponent } from './journal-form/journal-form.component';
 @NgModule({
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,    
+    FormsModule
   ],
   declarations: [
     AppComponent,
