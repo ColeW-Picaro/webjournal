@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Entry } from '../entry';
 import { EntriesService } from '../entries.service';
 
 @Component({

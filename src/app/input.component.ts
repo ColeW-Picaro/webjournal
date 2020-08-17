@@ -1,4 +1,10 @@
-import { Component, Output, EventEmitter, Input, OnInit, Inject, Injectable } from '@angular/core';
+/*
+  Filename: input.component.ts
+  Author: Cole Vohs
+  Description: A component to get input from a textarea
+*/
+
+import { Component, Output, EventEmitter, Input, OnInit, Renderer2, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-input',
@@ -6,7 +12,7 @@ import { Component, Output, EventEmitter, Input, OnInit, Inject, Injectable } fr
     <textarea [(ngModel)]="text"      
       (keyup.enter)="update()"
       (blur)="update()">
-    </textarea>
+    </textarea>    
     `
 })
 
@@ -17,25 +23,21 @@ export class InputComponent implements OnInit {
     index: the Index of the array
     updateEntry: Event for updating the entry
   */
-  text: string; 
+  text: string;   
   @Input() entry: any;
   @Input() index: number;
   @Output() updateEntry: EventEmitter<any> = new EventEmitter();  
-
-  constructor() {    
+  
+  constructor() {       
   }
 
   ngOnInit() {    
     this.text = this.entry.text;
   }
 
-  update() {
-    console.log(this.text);
+  update() {    
     this.entry.text = this.text;
-    this.updateEntry.emit({entry: this.text, index: this.index});
+    this.updateEntry.emit({entry: this.text, index: this.index});    
   }
 
-  getValue () {
-    return this.entry.text;
-  }  
 }

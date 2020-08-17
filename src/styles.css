@@ -1,7 +1,7 @@
 /* Global Styles */
 
 * {
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: Iosevka Medium, Arial, sans-serif;
   color: aliceblue;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -9,14 +9,16 @@
 }
 
 body {
-  margin-left: auto;
-  margin-right: auto;  
   background-color: #616161;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
+.container {       
+  display: block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto; 
+  word-wrap: normal;
+  padding-top: 70px;
 }
 
 router-outlet + *  {
@@ -53,15 +55,6 @@ a:hover {
   opacity: 0.8;
 }
 
-/* Input */
-
-input {
-  font-size: 14px;
-  border-radius: 2px;
-  padding: 8px;
-  margin-bottom: 16px;
-  border: 1px solid #BDBDBD;
-}
 
 label {
   font-size: 12px;
@@ -109,7 +102,7 @@ label {
 /* Top Bar */
 
 app-top-bar {
-  width: 100%;
+  width: 50%;
   height: 68px;
   background-color: #1976d2;
   padding: 16px;
@@ -117,6 +110,11 @@ app-top-bar {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1000;
+  position: fixed;
+  left: 25%;
 }
 
 app-top-bar h1 {
@@ -124,9 +122,20 @@ app-top-bar h1 {
   margin: 0;
 }
 
-textarea {
+app-input textarea {
   background: gray;
-  border: solid;
+  border: none;
   border-color: greenyellow;
-  margin-left: 1rem;
+  width: 350px;
+  resize: vertical;
+  padding: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  overflow: hidden;
+  height: 150px;
+}
+
+app-input textarea:focus {  
+  outline: none;  
 }
