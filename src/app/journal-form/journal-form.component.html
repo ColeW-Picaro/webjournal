@@ -1,0 +1,9 @@
+<div *ngFor="let entry of entriesService.entries">
+  <h2> {{ entry.num }}. {{ entry.name }} </h2>
+  <app-input id="{{entry.num}}"></app-input>  
+</div>
+<div *ngFor="let entry of entriesService.entries">
+  <h2> {{ entry.num }}. {{ entry.name }} </h2>
+  <p> {{ entry.text }} </p>
+</div>
+
