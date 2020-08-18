@@ -7,43 +7,21 @@
 
 import { Injectable } from '@angular/core';
 import { Entry } from './entry';
-
-var entries : Entry[] = [
-  {
-    num: 1,
-    name: "What good shall I do this day?",
-    description: "What good will you do today?",
-    text: ""
-  } as Entry,
-  {
-    num: 2,
-    name: "What good have I done this day?",
-    description: "What good have you done today?",
-    text: ""
-  } as Entry,
-  {
-    num: 3,
-    name: "What's positively affecting my mood?",
-    description: "What's positively affecting your mood?",
-    text: ""
-  } as Entry,
-  {
-    num: 4,
-    name: "What's negatively affecting my mood?",
-    description: "What's negatively affecting your mood?",
-    text: ""
-  } as Entry,
-]
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntriesService {
 
-  public entries: Entry[];    
+  public entries: Entry[];  
+  private messages = this.http.get("http://localhost:4201/");
 
-  constructor() {     
-    this.entries = entries;
+  constructor(private http: HttpClient) {         
+    this.messages.subscribe((data: Entry[]) => {
+      console.log(data);
+      this.entries = data;
+    });
   }
 
 }
