@@ -29,18 +29,24 @@ const entries : any[] = [
     name: "What's negatively affecting my mood?",
     description: "What's negatively affecting your mood?",
     text: ""
-  },
-]
+  }
+];
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", '*');
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
-})
+});
 
-app.get("/", (req, res) => {
+app.get("/entries", (req, res) => {
   res.send(entries);
-})
+});
+
+app.post("/export", (req, res) => {
+  res.send();
+});
+
+
 
 app.listen(port, (): any => {
   console.log("hello");

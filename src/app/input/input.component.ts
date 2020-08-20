@@ -8,12 +8,7 @@ import { Component, Output, EventEmitter, Input, OnInit, Renderer2, ElementRef }
 
 @Component({
   selector: 'app-input',
-  template: `
-    <textarea [(ngModel)]="text"      
-      (keyup.enter)="update()"
-      (blur)="update()">
-    </textarea>    
-    `
+  templateUrl: './input.component.html'
 })
 
 export class InputComponent implements OnInit {

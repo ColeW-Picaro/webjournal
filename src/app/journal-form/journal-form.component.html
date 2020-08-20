@@ -1,8 +1,8 @@
-<div *ngFor="let entry of entriesService.entries; let i = index">
+<div *ngFor="let entry of entries; let i = index">
   <h2> {{ entry.num }}. {{ entry.name }} </h2>
   <app-input [entry]="entry" [index]="i" (updateEntry)="updateEntry($event)"></app-input>  
 </div>
-<div *ngFor="let entry of entriesService.entries">
+<div *ngFor="let entry of entries">
   <h2>{{ entry.num }}. {{ entry.name }}</h2>
   <p>{{ entry.text }}</p>
 </div>
